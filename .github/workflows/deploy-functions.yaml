@@ -28,17 +28,8 @@ jobs:
         function: ${{ fromJson(needs.generate-matrix.outputs.folders) }}
         # Add environments to deploy to.
         # Each environment should have a corresponding github environment with secrets.
-        #
-        environment: [test, prod]
-        include:
-            - environment: test
-              CDF_CLUSTER: westeurope-1
-              CDF_PROJECT: cdf-bootcamp-65-test
-              IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
-            - environment: prod
-              CDF_CLUSTER: westeurope-1
-              CDF_PROJECT: cdf-bootcamp-65-prod
-              IDP_TENANT: 16e3985b-ebe8-4e24-9da4-933e21a9fc81
+        environment:
+          - test
 
     environment: ${{ matrix.environment }}
 
